@@ -1,0 +1,33 @@
+.login-form-block {
+  text-align: center;
+  &__header {
+    margin-bottom: 40px;
+  }
+  .login-form {
+    &-button-block {
+      display: flex;
+      margin-bottom: 30px;
+      max-width: 100%;
+      justify-content: space-between;
+    }
+    &-hr-block {
+      margin-bottom: 30px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      &__hr {
+        height: 1px;
+        background-color: #e3e6e9;
+        width: 100%;
+      }
+      &__span {
+        padding: 0px 5px;
+        text-align: center;
+        color: #bec5cc;
+        background-color: white;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+  }
+}

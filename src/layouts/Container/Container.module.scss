@@ -1,0 +1,9 @@
+.container {
+  max-width: 410px;
+  margin: 0 auto;
+  padding-top: 180px;
+  text-align: center;
+  &__logo {
+    margin-bottom: 80px;
+  }
+}
