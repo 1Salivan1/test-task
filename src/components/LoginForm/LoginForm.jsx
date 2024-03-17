@@ -50,13 +50,7 @@ const LoginForm = () => {
           marginBottom="15px"
           onChange={setPassword}
         />
-        <div
-          style={{
-            textAlign: "right",
-            marginBottom: "30px",
-            fontWeight: "500",
-          }}
-        >
+        <div style={{}} className={style["login-form-link-block"]}>
           <Link
             href="/forgot-password"
             style={{
