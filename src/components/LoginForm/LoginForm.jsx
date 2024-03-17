@@ -27,16 +27,8 @@ const LoginForm = () => {
       </h1>
       <form className={style["login-form"]} onSubmit={handleSubmit}>
         <div className={style["login-form-button-block"]}>
-          <Button
-            text="Google"
-            color="white"
-            img="/public/assets/images/Google.svg"
-          />
-          <Button
-            text="GitHub"
-            color="white"
-            img="/public/assets/images/GitHub.svg"
-          />
+          <Button text="Google" color="white" img="/assets/images/Google.svg" />
+          <Button text="GitHub" color="white" img="/assets/images/GitHub.svg" />
         </div>
         <div className={style["login-form-hr-block"]}>
           <div className={style["login-form-hr-block__hr"]}></div>
@@ -50,7 +42,7 @@ const LoginForm = () => {
           marginBottom="15px"
           onChange={setPassword}
         />
-        <div style={{}} className={style["login-form-link-block"]}>
+        <div className={style["login-form-link-block"]}>
           <Link
             href="/forgot-password"
             style={{
