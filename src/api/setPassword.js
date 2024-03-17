@@ -14,7 +14,7 @@ const setPassword = async ({ token, secret, pasword, password_confirm }) => {
     const data = await response.data;
     return data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 

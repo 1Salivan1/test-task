@@ -10,14 +10,18 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [formError, setFormError] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email.trim() === "") {
+    try {
+      const response = await resetPassword(email);
+      if (response.error === 0 || response.error === "0") {
+        setFormError(false);
+        navigate("/confirm-password");
+      } else {
+        setFormError(true);
+      }
+    } catch (error) {
       setFormError(true);
-    } else {
-      setFormError(false);
-      resetPassword(email, "/confirm-password");
-      navigate("/confirm-password");
     }
   };
 
@@ -32,8 +36,10 @@ const ForgotPassword = () => {
           type="email"
           onChange={setEmail}
         />
-        {formError ? (
-          <p style={{ color: "red" }}>Please fill in all fields</p>
+        {formError === true ? (
+          <div style={{ marginBottom: "10px", textAlign: "center" }}>
+            <span style={{ color: "red", marginBottom: "10px" }}>Error</span>
+          </div>
         ) : (
           ""
         )}

@@ -1,12 +1,11 @@
 import style from "./Button.module.scss";
 
-const Button = ({ text, img, onClick, color, marginBottom, type }) => {
+const Button = ({ text, img, color, marginBottom, type }) => {
   return (
     <div className={style["button-block"]}>
       <button
         className={style["button-block__button"]}
         type={type}
-        onClick={() => onClick()}
         style={
           color === "white"
             ? {

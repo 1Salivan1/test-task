@@ -8,6 +8,7 @@ import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "./pages/LoginPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ConfirmPasswordPage from "./pages/ConfirmPasswordPage";
+import getRefreshToken from "./api/getRefreshToken.js";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
     element: <ConfirmPasswordPage />,
   },
 ]);
-
+getRefreshToken();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Container>

@@ -25,7 +25,6 @@ const ConfirmPassword = () => {
     }
   };
 
-  console.log(success);
   return (
     <div className={style["confirm-password-block"]}>
       <h1 className={style["confirm-password-block__header"]}>

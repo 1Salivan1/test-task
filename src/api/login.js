@@ -16,7 +16,7 @@ const login = async (email, password) => {
       expires: data.refresh_token_expire,
     });
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
