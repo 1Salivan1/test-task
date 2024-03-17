@@ -4,19 +4,25 @@ import Input from "../../ui/Input/Input";
 import { Link } from "react-router-dom";
 import login from "../../api/login";
 import { useState } from "react";
+import Status from "../../ui/Status/Status";
 
 const LoginForm = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [formError, setFormError] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email.trim() === "" || password.trim() === "") {
+    try {
+      const response = await login(email, password);
+      if (response.error === 0 || response.error === "0") {
+        setFormError(false);
+        login(email, password);
+      } else {
+        setFormError(true);
+      }
+    } catch (error) {
       setFormError(true);
-    } else {
-      setFormError(false);
-      login(email, password);
     }
   };
 
@@ -53,12 +59,8 @@ const LoginForm = () => {
             Forgot password?
           </Link>
         </div>
-        {formError ? (
-          <p style={{ color: "red" }}>Please fill in all fields</p>
-        ) : (
-          ""
-        )}
-        {formError === false ? <p style={{ color: "green" }}>Success</p> : ""}
+        {formError === true ? <Status text="Error" status="error" /> : ""}
+        {formError === false ? <Status text="Success" status="success" /> : ""}
         <Button text="Log in to Qencode" type="submit" />
       </form>
     </div>

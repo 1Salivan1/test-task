@@ -4,11 +4,12 @@ import Button from "../../ui/Button/Button";
 import { useState } from "react";
 import setNewPassword from "../../api/setPassword";
 import Cookies from "js-cookie";
+import Status from "../../ui/Status/Status";
 
 const ConfirmPassword = () => {
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
-  const [success, setSuccess] = useState(undefined);
+  const [success, setSuccess] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +23,8 @@ const ConfirmPassword = () => {
         password,
         secondPassword
       );
+    } else {
+      setSuccess(false);
     }
   };
 
@@ -43,16 +46,8 @@ const ConfirmPassword = () => {
           label="Confirm password"
           onChange={setSecondPassword}
         />
-        {success === true ? (
-          <span className={style["success"]}>Success</span>
-        ) : (
-          ""
-        )}
-        {success === false ? (
-          <span className={style["false_success"]}>Password mismatch</span>
-        ) : (
-          ""
-        )}
+        {success === true ? <Status text="Success" status="success" /> : ""}
+        {success === false ? <Status text="Error" status="error" /> : ""}
         <Button type="submit" text="Reset Password" />
       </form>
     </div>

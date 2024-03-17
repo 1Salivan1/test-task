@@ -4,6 +4,7 @@ import Input from "../../ui/Input/Input";
 import style from "./ForgotPassword.module.scss";
 import { useState } from "react";
 import resetPassword from "../../api/resetPassword";
+import Status from "../../ui/Status/Status";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -36,13 +37,8 @@ const ForgotPassword = () => {
           type="email"
           onChange={setEmail}
         />
-        {formError === true ? (
-          <div style={{ marginBottom: "10px", textAlign: "center" }}>
-            <span style={{ color: "red", marginBottom: "10px" }}>Error</span>
-          </div>
-        ) : (
-          ""
-        )}
+        {formError === true ? <Status text="Error" status="error" /> : ""}
+        {formError === false ? <Status text="Success" status="success" /> : ""}
         <Button text="Send" marginBottom="20px" type="submit" />
         <Button
           text="Cancel"

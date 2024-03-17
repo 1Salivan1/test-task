@@ -15,6 +15,7 @@ const login = async (email, password) => {
     Cookies.set("refresh_token", data.refresh_token, {
       expires: data.refresh_token_expire,
     });
+    return data;
   } catch (error) {
     return error;
   }
